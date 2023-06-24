@@ -2,6 +2,7 @@
 use CodeIgniter\RESTful\ResourceController;
 use CodeIgniter\API\ResponseTrait;
 use App\Models\EmployeeModel;
+use CodeIgniter\HTTP\IncomingRequest;
 
 class Employee extends ResourceController
 {
@@ -43,6 +44,7 @@ class Employee extends ResourceController
     public function update($id = null){
         $model = new EmployeeModel();
         $id = $this->request->getVar('id');
+        print_r($id);die;
         $data = [
             'name' => $this->request->getVar('name'),
             'email'  => $this->request->getVar('email'),
