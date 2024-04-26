@@ -40,7 +40,6 @@ class Users extends Controller
  
     public function edit($id = null)
     {
-      
         $model = new UserModel();
         $data['user'] = $model->where('id', $id)->first();
         return view('edit-user', $data);
@@ -48,21 +47,17 @@ class Users extends Controller
  
     public function update()
     {  
- 
         helper(['form', 'url']);
-         
         $model = new UserModel();
  
         $id = $this->request->getVar('id');
         
         $data = [
- 
             'name' => $this->request->getVar('name'),
             'email'  => $this->request->getVar('email'),
             ];
  
         $save = $model->update($id,$data);
- 
         return redirect()->to( base_url('/Users') );
     }
  
